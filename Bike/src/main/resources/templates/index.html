@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Bike Store </title>
+  </head>
+  <style>
+    .table{
+              left: 50%;
+              
+    }
+    
+</style>
+  <body>
+   
+
+    <div align="center">
+        <h1>Bikes Details</h1>
+        
+        <a class="btn btn-outline-success " href="/newcoustmer" role="button">Add New Bike</a>
+        <br/><br/>
+        <table border="1" cellpadding="10" class="table">
+        <thead class="thead-dark">
+        <tr>
+        <th>Bike ID</th>
+        <th>Name</th>
+        <th>Model No</th>
+        <th>Price</th>
+        <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="bike : ${listsBike}">
+        <td th:text="${bike.id}">Bike ID</td>
+        <td th:text="${bike.name}">Name</td>
+        <td th:text="${bike.modelno}">Model No</td>
+        <td th:text="${bike.price}">Price</td>
+        <td>
+         <a th:href="@{'/edit/' + ${bike.id}}" class="btn btn-outline-warning" role="button">Edit</a>
+        &nbsp;&nbsp;&nbsp;
+        <a th:href="@{'/delete/' + ${bike.id}}" class="btn btn-outline-danger" role="button">Delete</a> 
+        </td>
+        </tr>
+        </tbody>
+        </table>
+
+        <br/><br/>
+
+        <h1>Coustmer Details</h1>
+        <br/><br/>
+
+        <a class="btn btn-outline-success " href="/newcoustmer" role="button">Add New Coustmer</a>
+       
+        <br/><br/>
+
+        <table border="1" cellpadding="10" class="table">
+          <thead class="thead-dark">
+          <tr>
+          <th>Couster ID</th>
+          <th>Name</th>
+          <th>Salary</th>
+          <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="coustmer : ${listsCoustmers}">
+          <td th:text="${coustmer.id}">Couster ID</td>
+          <td th:text="${coustmer.name}">Name</td>
+          <td th:text="${coustmer.salary}">Salary</td>
+          <td>
+           <a   th:href="@{'/editcoustmer/' + ${coustmer.id}}" class="btn btn-outline-warning" role="button">Edit</a>
+          &nbsp;&nbsp;&nbsp;
+          <a th:href="@{'/deletecoustmer/' + ${coustmer.id}}" class="btn btn-outline-danger" role="button">Delete</a>   
+          </td>
+          </tr>
+          </tbody>
+          </table>
+  
+        </div>
+        
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
